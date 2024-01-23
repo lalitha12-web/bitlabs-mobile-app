@@ -1,0 +1,28 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "timeoutSeconds": 500,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "firebase.json"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  ],
+  "predeploy": [
+    "api.cloudfunctions.googleapis.com",
+    "api.cloudbuild.googleapis.com",
+    "api.artifactregistry.googleapis.com"
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
